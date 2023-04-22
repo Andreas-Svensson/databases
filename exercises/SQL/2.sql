@@ -6,7 +6,7 @@ SELECT
 	[Period],
 	MIN([Number]) AS 'From',
 	MAX([Number]) AS 'To',
-	FORMAT(AVG(StableIsotopes * 1.0),	'#.##') AS 'Average Isotopes',
+	FORMAT(AVG(StableIsotopes * 1.0), '#.##') AS 'Average Isotopes',
 	STRING_AGG(Symbol, ', ') AS 'Symbols'
 FROM
 	[Elements]
@@ -58,7 +58,7 @@ GROUP BY
 -- ### Exercise 2C ###
 -- ###################
 
-DECLARE @season_info NVARCHAR(max) = ''
+DECLARE @season_info NVARCHAR(MAX) = ''
 
 SELECT
 	@season_info += CONCAT(
