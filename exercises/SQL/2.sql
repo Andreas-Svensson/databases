@@ -41,16 +41,20 @@ GROUP BY
 	Region,
 	Country,
 	City
+HAVING
+	COUNT(City) >= 2
 
 -->
 
--- Region             Country        City          Customers
--- British Isles      Ireland        Cork          1
--- British Isles      UK             Cowes         1
--- British Isles      UK             London        6
--- Central America    Mexico         México D.F.   4
--- Eastern Europe     Poland         Warszawa      1
--- North America      Canada         Montréal      1
+-- Region               Country       City                Customers
+-- British Isles        UK            London              6
+-- Central America      Mexico        México D.F.         4
+-- North America        USA           Portland            2
+-- South America        Argentina     Buenos Aires        2
+-- South America        Brazil        Rio de Janeiro      3
+-- South America        Brazil        Sao Paulo           3
+-- Southern Europe      Portugal      Lisboa              2
+-- Southern Europe      Spain         Madrid              2
 
 
 
@@ -86,6 +90,8 @@ PRINT @season_info
 -- ###################
 -- ### Exercise 2D ###
 -- ###################
+
+-- TODO: take full dates into account instead of just year
 
 SELECT
 	FirstName + ' ' + LastName AS 'Name',
@@ -161,7 +167,7 @@ SELECT
 	SUM(CASE WHEN ICAO IS NULL THEN 1 ELSE 0 END) AS 'Missing ICAO',
 	FORMAT(SUM(CASE WHEN ICAO IS NULL THEN 1 ELSE 0 END) * 1.0 / COUNT(DISTINCT(IATA)) * 100, '0.##') AS 'Missing ICAO (%)'
 FROM
-	airports
+	Airports
 GROUP BY
 	CASE
 		WHEN [Location served] LIKE '%,%' THEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 1)
