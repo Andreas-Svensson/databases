@@ -15,14 +15,14 @@ GROUP BY
 
 -->
 
--- Period   From    To      Average Isotopes    Symbols
--- 1        1       2       2                   H, He
--- 2		3		10		2					Li, Be, B, C, N, O, F, Ne
--- 3		11		18		2.25				Na, Mg, Al, Si, P, S, Cl, Ar
--- 4		19		36		2.88				K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ga, Ge, As, Se, Br, Kr
--- 5		37		54		3.73				Rb, Sr, Y, Zr, Nb, Mo, Tc, Ru, Rh, Pd, Ag, Cd, In, Sn, Sb, Te, I, Xe
--- 6		55		86		3.31				Cs, Ba, La, Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Os, Ir, Pt, Au, Hg, Tl, Pb, Bi, Po, At, Rn
--- 7		87		118		NULL				Fr, Ra, Ac, Th, Pa, U, Np, Pu, Am, Cm, Bk, Cf, Es, Fm, Md, No, Lr, Rf, Db, Sg, Bh, Hs, Mt, Ds, Rg, Cp, Nh, Fl, Mc, Lv, Ts, Og
+-- Period    From    To      Average Isotopes     Symbols
+-- 1         1       2       2                    H, He
+-- 2         3       10      2                    Li, Be, B, C, N, O, F, Ne
+-- 3         11      18      2.25                 Na, Mg, Al, Si, P, S, Cl, Ar
+-- 4         19      36      2.88                 K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ga, Ge, As, Se, Br, Kr
+-- 5         37      54      3.73                 Rb, Sr, Y, Zr, Nb, Mo, Tc, Ru, Rh, Pd, Ag, Cd, In, Sn, Sb, Te, I, Xe
+-- 6         55      86      3.31                 Cs, Ba, La, Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Os, Ir, Pt, Au, Hg, Tl, Pb, Bi, Po, At, Rn
+-- 7         87      118     NULL                 Fr, Ra, Ac, Th, Pa, U, Np, Pu, Am, Cm, Bk, Cf, Es, Fm, Md, No, Lr, Rf, Db, Sg, Bh, Hs, Mt, Ds, Rg, Cp, Nh, Fl, Mc, Lv, Ts, Og
 
 
 
@@ -44,13 +44,13 @@ GROUP BY
 
 -->
 
--- Region			Country		City		Customers
--- British Isles	Ireland		Cork		1
--- British Isles	UK			Cowes		1
--- British Isles	UK			London		6
--- Central America	Mexico		México D.F.	4
--- Eastern Europe	Poland		Warszawa	1
--- North America	Canada		Montréal	1
+-- Region             Country        City          Customers
+-- British Isles      Ireland        Cork          1
+-- British Isles      UK             Cowes         1
+-- British Isles      UK             London        6
+-- Central America    Mexico         México D.F.   4
+-- Eastern Europe     Poland         Warszawa      1
+-- North America      Canada         Montréal      1
 
 
 
@@ -102,12 +102,12 @@ ORDER BY
 
 -->
 
--- Name				Age				Gender
--- Alexander Dahl	49 years old	Male
--- Alvin Lindholm	70 years old	Male
--- Anders Hansson	41 years old	Male
--- Anne Åkerman		48 years old	Female
--- Annette Bergfalk	61 years old	Female
+-- Name                Age              Gender
+-- Alexander Dahl      49 years old     Male
+-- Alvin Lindholm      70 years old     Male
+-- Anders Hansson      41 years old     Male
+-- Anne Åkerman        48 years old     Female
+-- Annette Bergfalk    61 years old     Female
 
 
 
@@ -131,18 +131,18 @@ GROUP BY
 
 -->
 
--- Region				Countries	Population		Area (square miles)	Population Density (per square mile)	Infant Mortality (per 100.000)
--- ASIA (EX. NEAR EAST)	28			3687982236		23096712			159.68									4178
--- BALTICS				3			7184974			175015				41.05									810
--- C.W. OF IND. STATES	12			280081548		22100843			12.67									4441
--- EASTERN EUROPE		12			119914717		1152222				104.07									1269
--- LATIN AMER. & CARIB	45			561824599		20544084			27.35									2009
--- NEAR EAST			16			195068377		4355586				44.79									2338
--- NORTHERN AFRICA		6			161407133		6018890				26.82									3092
--- NORTHERN AMERICA		5			331672307		21782471			15.23									863
--- OCEANIA				21			33131662		8519812				3.89									2020
--- SUB-SAHARAN AFRICA	51			749437000		24341406			30.79									8004
--- WESTERN EUROPE		28			396339998		3710478				106.82									473
+-- Region                  Countries      Population        Area (square miles)      Population Density (per square mile)      Infant Mortality (per 100.000)
+-- ASIA (EX. NEAR EAST)    28             3687982236        23096712                 159.68                                    4178
+-- BALTICS                 3              7184974           175015                   41.05                                     810
+-- C.W. OF IND. STATES     12             280081548	        22100843                 12.67                                     4441
+-- EASTERN EUROPE          12             119914717	        1152222                  104.07                                    1269
+-- LATIN AMER. & CARIB     45             561824599	        20544084                 27.35                                     2009
+-- NEAR EAST               16             195068377	        4355586                  44.79                                     2338
+-- NORTHERN AFRICA         6              161407133	        6018890                  26.82                                     3092
+-- NORTHERN AMERICA        5              331672307	        21782471                 15.23                                     863
+-- OCEANIA                 21             33131662          8519812                  3.89                                      2020
+-- SUB-SAHARAN AFRICA      51             749437000	        24341406                 30.79                                     8004
+-- WESTERN EUROPE          28             396339998	        3710478                  106.82                                    473
 
 
 
@@ -170,12 +170,7 @@ GROUP BY
 
 -->
 
--- Country								Airports		Missing ICAO		Missing ICAO (%)
---  Argentina							105				11					10.48
---  Ascension and Tristan da Cunha		2				0					0
---  Australia							612				108					17.65
-
-
---    a
-	a
-    a
+-- Country                              Airports        Missing ICAO        Missing ICAO (%)
+--  Argentina                           105             11                  10.48
+--  Ascension and Tristan da Cunha      2               0                   0
+--  Australia                           612             108                 17.65
