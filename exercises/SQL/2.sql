@@ -15,8 +15,8 @@ GROUP BY
 
 -->
 
--- Period	From	To		Average Isotopes	Symbols
--- 1		1		2		2					H, He
+-- Period   From    To      Average Isotopes    Symbols
+-- 1        1       2       2                   H, He
 -- 2		3		10		2					Li, Be, B, C, N, O, F, Ne
 -- 3		11		18		2.25				Na, Mg, Al, Si, P, S, Cl, Ar
 -- 4		19		36		2.88				K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ga, Ge, As, Se, Br, Kr
@@ -174,3 +174,8 @@ GROUP BY
 --  Argentina							105				11					10.48
 --  Ascension and Tristan da Cunha		2				0					0
 --  Australia							612				108					17.65
+
+
+--    a
+	a
+    a
