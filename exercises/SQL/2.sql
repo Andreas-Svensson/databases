@@ -134,15 +134,15 @@ GROUP BY
 -- Region                  Countries      Population        Area (square miles)      Population Density (per square mile)      Infant Mortality (per 100.000)
 -- ASIA (EX. NEAR EAST)    28             3687982236        23096712                 159.68                                    4178
 -- BALTICS                 3              7184974           175015                   41.05                                     810
--- C.W. OF IND. STATES     12             280081548	        22100843                 12.67                                     4441
--- EASTERN EUROPE          12             119914717	        1152222                  104.07                                    1269
--- LATIN AMER. & CARIB     45             561824599	        20544084                 27.35                                     2009
--- NEAR EAST               16             195068377	        4355586                  44.79                                     2338
--- NORTHERN AFRICA         6              161407133	        6018890                  26.82                                     3092
--- NORTHERN AMERICA        5              331672307	        21782471                 15.23                                     863
+-- C.W. OF IND. STATES     12             280081548         22100843                 12.67                                     4441
+-- EASTERN EUROPE          12             119914717         1152222                  104.07                                    1269
+-- LATIN AMER. & CARIB     45             561824599         20544084                 27.35                                     2009
+-- NEAR EAST               16             195068377         4355586                  44.79                                     2338
+-- NORTHERN AFRICA         6              161407133         6018890                  26.82                                     3092
+-- NORTHERN AMERICA        5              331672307         21782471                 15.23                                     863
 -- OCEANIA                 21             33131662          8519812                  3.89                                      2020
--- SUB-SAHARAN AFRICA      51             749437000	        24341406                 30.79                                     8004
--- WESTERN EUROPE          28             396339998	        3710478                  106.82                                    473
+-- SUB-SAHARAN AFRICA      51             749437000         24341406                 30.79                                     8004
+-- WESTERN EUROPE          28             396339998         3710478                  106.82                                    473
 
 
 
