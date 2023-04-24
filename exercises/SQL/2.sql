@@ -119,7 +119,7 @@ ORDER BY
 -- ### Exercise 2E ###
 -- ###################
 
--- TODO: check mortality calculation
+-- NOTE: infant mortality calculation is not accurate as the required data was not available, simply multiplied by 100 as placeholder calculation
 
 SELECT
 	Region,
@@ -158,11 +158,7 @@ GROUP BY
 
 SELECT
 	CASE
-		WHEN [Location served] LIKE '%,%' THEN 
-			CASE
-				WHEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 2) LIKE ' %' THEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 3)
-				ELSE RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 2)
-			END
+		WHEN [Location served] LIKE '%,%' THEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 2)
 		ELSE [Location served]
 	END AS 'Country',
 	COUNT(DISTINCT(IATA)) as 'Airports',
@@ -172,13 +168,11 @@ FROM
 	Airports
 GROUP BY
 	CASE
-		WHEN [Location served] LIKE '%,%' THEN
-			CASE
-				WHEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 2) LIKE ' %' THEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 3)
-				ELSE RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 2)
-			END
+		WHEN [Location served] LIKE '%,%' THEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 2)
 		ELSE [Location served]
-	END;
+	END
+ORDER BY
+	Country
 
 -->
 
