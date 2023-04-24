@@ -6,18 +6,18 @@ SELECT
 	[Period],
 	MIN([Number]) AS 'From',
 	MAX([Number]) AS 'To',
-	FORMAT(AVG(StableIsotopes * 1.0), '#.##') AS 'Average Isotopes',
+	FORMAT(AVG(CAST(StableIsotopes AS FLOAT)), '#.00') AS 'Average Isotopes',
 	STRING_AGG(Symbol, ', ') AS 'Symbols'
 FROM
 	[Elements]
 GROUP BY
-	[Period]
+	[Period];
 
 -->
 
 -- Period    From    To      Average Isotopes     Symbols
--- 1         1       2       2                    H, He
--- 2         3       10      2                    Li, Be, B, C, N, O, F, Ne
+-- 1         1       2       2.00                 H, He
+-- 2         3       10      2.00                 Li, Be, B, C, N, O, F, Ne
 -- 3         11      18      2.25                 Na, Mg, Al, Si, P, S, Cl, Ar
 -- 4         19      36      2.88                 K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ga, Ge, As, Se, Br, Kr
 -- 5         37      54      3.73                 Rb, Sr, Y, Zr, Nb, Mo, Tc, Ru, Rh, Pd, Ag, Cd, In, Sn, Sb, Te, I, Xe
@@ -34,15 +34,15 @@ SELECT
 	Region,
 	Country,
 	City,
-	COUNT(City) AS 'Customers'
+	COUNT(*) AS 'Customers'
 FROM
-	Company.Customers
+	[Company].[Customers]
 GROUP BY
 	Region,
 	Country,
 	City
 HAVING
-	COUNT(City) >= 2
+	COUNT(City) >= 2;
 
 -->
 
@@ -62,7 +62,7 @@ HAVING
 -- ### Exercise 2C ###
 -- ###################
 
-DECLARE @season_info NVARCHAR(MAX) = ''
+DECLARE @season_info NVARCHAR(MAX) = '';
 
 SELECT
 	@season_info += CONCAT(
@@ -75,9 +75,9 @@ SELECT
 FROM
 	GameOfThrones
 GROUP BY
-	Season
+	Season;
 
-PRINT @season_info
+PRINT @season_info;
 
 -->
 
@@ -104,7 +104,7 @@ FROM
 	Users
 ORDER BY
 	FirstName,
-	LastName
+	LastName;
 
 -->
 
@@ -133,7 +133,7 @@ SELECT
 FROM
 	Countries
 GROUP BY
-	Region
+	Region;
 
 -->
 
@@ -172,7 +172,7 @@ GROUP BY
 	CASE
 		WHEN [Location served] LIKE '%,%' THEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 1)
 		ELSE [Location served]
-	END
+	END;
 
 -->
 
