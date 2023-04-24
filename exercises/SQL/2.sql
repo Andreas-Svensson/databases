@@ -42,7 +42,7 @@ GROUP BY
 	Country,
 	City
 HAVING
-	COUNT(City) >= 2;
+	COUNT(*) >= 2;
 
 -->
 
@@ -91,11 +91,9 @@ PRINT @season_info;
 -- ### Exercise 2D ###
 -- ###################
 
--- TODO: take full dates into account instead of just year
-
 SELECT
 	FirstName + ' ' + LastName AS 'Name',
-	RIGHT((YEAR(GETDATE()) - LEFT(ID, 2)), 2) + ' years old' AS 'Age', -- last 2 numbers of [current year - birth year] (i.e. 2023 - 13 = 2010 -> 10)
+	CAST(DATEDIFF(YEAR, SUBSTRING(ID, 1, 6), GETDATE() ) AS NVARCHAR) + ' years old',
 	CASE
 		WHEN SUBSTRING(ID, 10, 1) % 2 = 0 THEN 'Female'
 		ELSE 'Male'
@@ -160,7 +158,11 @@ GROUP BY
 
 SELECT
 	CASE
-		WHEN [Location served] LIKE '%,%' THEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 1)
+		WHEN [Location served] LIKE '%,%' THEN 
+			CASE
+				WHEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 2) LIKE ' %' THEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 3)
+				ELSE RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 2)
+			END
 		ELSE [Location served]
 	END AS 'Country',
 	COUNT(DISTINCT(IATA)) as 'Airports',
@@ -170,7 +172,11 @@ FROM
 	Airports
 GROUP BY
 	CASE
-		WHEN [Location served] LIKE '%,%' THEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 1)
+		WHEN [Location served] LIKE '%,%' THEN
+			CASE
+				WHEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 2) LIKE ' %' THEN RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 3)
+				ELSE RIGHT([Location served], CHARINDEX(',', REVERSE([Location served])) - 2)
+			END
 		ELSE [Location served]
 	END;
 
