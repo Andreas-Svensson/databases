@@ -53,6 +53,35 @@ SELECT * FROM Users2
 -- 530407-7989     ulal         4fec58181bb416f09f8ef0f69433584f     Ulla          Alvarsson       ulla.alvarsson@hotmail.com        070-9922357
 
 
+-- ###################
+-- ### Exercise 1C ###
+-- ###################
+
+SELECT
+	IATA,
+	ICAO,
+	[Airport Name],
+	[Location Served],
+	ISNULL(Time, '-') AS 'Time',
+	ISNULL(DST, '-') AS 'DST'
+INTO
+	Airports2
+FROM
+	Airports
+
+SELECT * FROM Airports2
+
+-->
+
+-- IATA     ICAO     Airport Name                                  Location Served                            Time          DST
+-- AAA      NTGA     Anaa Airport                                  Anaa, Tuamotus, French Polynesia           UTC−10:00	    -
+-- AAB      YARY     Arrabury Airport                              Arrabury, Queensland, Australia            UTC+10:00	    -
+-- AAC      HEAR     El Arish International Airport                El Arish, Egypt                            UTC+02:00     -
+-- AAD      NULL     Adado Airport                                 Adado (Cadaado), Galguduud, Somalia        UTC+03:00	    -
+-- AAE      DABB     Rabah Bitat Airport (Les Salines Airport)     Annaba, Algeria                            UTC+01:00	    -
+-- AAF      KAAF     Apalachicola Regional Airport                 Apalachicola, Florida, United States       UTC−05:00	    Mar-Nov
+
+
 
 -- ###################
 -- ### Exercise 1F ###
