@@ -153,15 +153,7 @@ SELECT * FROM Elements3
 -- ### Exercise 1F ###
 -- ###################
 
-SELECT
-	Name,
-	Red,
-	Green,
-	Blue
-INTO
-	Colors2
-FROM
-	Colors
+SELECT Name, Red, Green, Blue INTO Colors2 FROM Colors
 
 SELECT
 	Name,
