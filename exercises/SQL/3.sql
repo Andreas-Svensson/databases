@@ -109,3 +109,4 @@ ORDER BY
 
 -- Supplier                                 Products Sold
 -- Plutzer Lebensmittelgroßmärkte AG        488
+

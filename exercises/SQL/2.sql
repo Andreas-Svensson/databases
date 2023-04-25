@@ -180,3 +180,4 @@ ORDER BY
 --  Argentina                           105             11                  10.48
 --  Ascension and Tristan da Cunha      2               0                   0
 --  Australia                           612             108                 17.65
+
