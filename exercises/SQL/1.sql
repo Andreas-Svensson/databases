@@ -84,6 +84,35 @@ SELECT * FROM Airports2
 
 
 -- ###################
+-- ### Exercise 1D ###
+-- ###################
+
+SELECT * INTO Elements2 FROM Elements
+
+DELETE FROM
+	Elements2
+WHERE
+	Name IN ('Erbium', 'Helium', 'Nitrogen', 'Platinum', 'Selenium')
+	OR LEFT(Name, 1) IN ('d', 'k', 'm', 'o', 'u')
+
+SELECT * FROM Elements2
+
+-->
+
+-- Number      Symbol       Name          Period     Group     Mass     Radius     Valenceel     Stableisotopes     Meltingpoint     Boilingpoint     Density
+-- 1           H            Hydrogen      1          1         1,008    25         1             2                  14,1             20,3             0,084
+-- -           -            -             -          -         -        -          -             -                  -                -                -         <-- DROPPED Helium
+-- 3           Li           Lithium       2          1         6,941    145        1             2                  454              1615             0,53
+-- 4           Be           Beryllium     2          2         9,012    105        2             1                  1551             3750             1,85
+-- 5           B            Boron         2          13        10,81    85         3             2                  2349             4200             2,46
+-- 6           C            Carbon        2          14        12,011   70         4             2                  3820             5100             3,51
+-- -           -            -             -          -         -        -          -             -                  -                -                -         <-- DROPPED Nitrogen
+-- -           -            -             -          -         -        -          -             -                  -                -                -         <-- DROPPED Oxygen
+-- 9           F            Fluorine      2          17        18,998   50         7             1                  53,5             85               1,58
+
+
+
+-- ###################
 -- ### Exercise 1F ###
 -- ###################
 
