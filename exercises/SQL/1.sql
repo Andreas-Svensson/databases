@@ -27,6 +27,34 @@ FROM
 
 
 -- ###################
+-- ### Exercise 1B ###
+-- ###################
+
+SELECT
+	ID,
+	LOWER(LEFT(FirstName, 2) + LEFT(LastName, 2)) AS 'UserName',
+	Password,
+	FirstName,
+	LastName,
+	Email,
+	Phone
+INTO
+	Users2
+FROM
+	Users
+
+SELECT * FROM Users2
+
+-->
+
+-- ID              UserName     Password                             FirstName     LastName        Email                             Phone
+-- 500603-4268     jole         422cf6c6f212dde0fa96c532de240104     Johanna       Lennartsson     johanna.lennartsson@gmail.com     070-9428041
+-- 500607-6521     cakn         c5aa65949d20f6b20e1a922c13d974e7     Catharina     Knutson         catharina.knutson@yahoo.com       0702-3351252
+-- 530407-7989     ulal         4fec58181bb416f09f8ef0f69433584f     Ulla          Alvarsson       ulla.alvarsson@hotmail.com        070-9922357
+
+
+
+-- ###################
 -- ### Exercise 1F ###
 -- ###################
 
