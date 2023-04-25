@@ -113,6 +113,43 @@ SELECT * FROM Elements2
 
 
 -- ###################
+-- ### Exercise 1E ###
+-- ###################
+
+SELECT
+	Symbol,
+	Name,
+	CASE -- Name starts with same letter(s) as Symbol
+		WHEN LEFT(Name, LEN(Symbol)) = Symbol THEN 'Yes'
+		ELSE 'No'
+		END AS 'YES/NO'
+INTO
+	Elements3
+FROM
+	Elements
+
+SELECT * FROM Elements3
+
+-->
+
+-- Symbol     Name          YES/NO
+-- H          Hydrogen      Yes
+-- He         Helium        Yes
+-- Li         Lithium       Yes
+-- Be         Beryllium     Yes
+-- B          Boron         Yes
+-- C          Carbon        Yes
+-- N          Nitrogen      Yes
+-- O          Oxygen        Yes
+-- F          Fluorine      Yes
+-- Ne         Neon          Yes
+-- Na         Sodium        No
+-- Mg         Magnesium     No
+-- Al         Aluminium     Yes
+
+
+
+-- ###################
 -- ### Exercise 1F ###
 -- ###################
 
