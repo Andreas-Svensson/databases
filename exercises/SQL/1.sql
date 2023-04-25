@@ -2,6 +2,29 @@
 -- ### Exercise 1A ###
 -- ###################
 
+SELECT
+	Title,
+	'S' + FORMAT(Season, '00') + 'E' + FORMAT(EpisodeInSeason, '00')
+FROM
+	GameOfThrones
+
+-->
+
+-- Episode                                   Episode
+-- Winter Is Coming                          S01E01
+-- The Kingsroad                             S01E02
+-- Lord Snow                                 S01E03
+-- Cripples, Bastards, and Broken Things     S01E04
+-- The Wolf and the Lion                     S01E05
+-- A Golden Crown                            S01E06
+-- You Win or You Die                        S01E07
+-- The Pointy End                            S01E08
+-- Baelor                                    S01E09
+-- Fire and Blood                            S01E10
+-- The North Remembers                       S02E01
+-- The Night Lands                           S02E02
+
+
 
 -- ###################
 -- ### Exercise 1F ###
