@@ -182,3 +182,35 @@ FROM
 -- aliceblue       #F0F8FF     240     248      255
 -- antiquewhite    #FAEBD7     250     235      215
 -- aqua            #00FFFF     0       255      255
+
+
+
+-- ###################
+-- ### Exercise 1G ###
+-- ###################
+
+SELECT
+	Integer,
+	CAST(Integer AS FLOAT) / 100 AS 'Float',
+	String,
+	-- NOTE: have to add DAY Integer - 1 because 2019-01-00 is not a valid date
+	CAST(DATEADD(DAY, [Integer] - 1, DATEADD(MINUTE, [Integer], '2019-01-01 09:00:00')) AS DATETIME2) AS 'DateTime',
+	Integer % 2 AS 'Bool'
+FROM
+	Types
+
+-->
+
+-- Integer     Float       String        DateTime                         Bool
+-- 1           0,01        Alfa          2019-01-01 09:01:00.0000000       1
+-- 2           0,02        Bravo         2019-01-02 09:02:00.0000000       0
+-- 3           0,03        Charlie       2019-01-03 09:03:00.0000000       1
+-- 4           0,04        Delta         2019-01-04 09:04:00.0000000       0
+-- 5           0,05        Echo          2019-01-05 09:05:00.0000000       1
+-- 6           0,06        Foxtrot       2019-01-06 09:06:00.0000000       0
+-- 7           0,07        Golf          2019-01-07 09:07:00.0000000       1
+-- 8           0,08        Hotel         2019-01-08 09:08:00.0000000       0
+-- 9           0,09        India         2019-01-09 09:09:00.0000000       1
+-- 10          0,1         Juliett       2019-01-10 09:10:00.0000000       0
+-- 11          0,11        Kilo          2019-01-11 09:11:00.0000000       1
+
