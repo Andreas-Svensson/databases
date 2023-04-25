@@ -34,7 +34,7 @@ FROM
 GROUP BY
 	o.ShipCity
 ORDER BY
-	[Amount Orders] DESC
+	[Amount Orders] DESC;
 
 -->
 
@@ -54,7 +54,7 @@ FROM
 	JOIN Company.Order_Details od ON p.ID = od.ProductId
 	JOIN Company.Orders o ON od.OrderID = o.ID
 WHERE
-	o.ShipCountry = 'Germany' AND p.Discontinued = 1
+	o.ShipCountry = 'Germany' AND p.Discontinued = 1;
 
 -->
 
@@ -67,7 +67,7 @@ WHERE
 -- ### Exercise 3D ###
 -- ###################
 
-SELECT TOP 1 -- remove top 1 to get stock of all categories
+SELECT TOP 1
 	c.CategoryName AS 'Category',
 	SUM(p.UnitsInStock) AS 'In Stock'
 FROM
@@ -76,7 +76,7 @@ FROM
 GROUP BY
 	c.CategoryName
 ORDER BY
-	SUM(p.UnitsInStock) DESC
+	[In Stock] DESC;
 
 -->
 
@@ -98,12 +98,12 @@ FROM
 	JOIN Company.Products p ON od.ProductID = p.ID
 	JOIN Company.Suppliers s ON p.SupplierID = s.ID
 WHERE
-	o.OrderDate BETWEEN '2013-06-01' AND '2013-09-01'
+	o.OrderDate BETWEEN '2013-06-01' AND '2013-08-31' -- arbitrarily defined summer as June, July,  August
 GROUP BY
-	s.ID,
-	s.CompanyName
+	s.CompanyName,
+	s.ID -- include ID to deal with companies having the same name
 ORDER BY
-	[Products Sold] DESC
+	[Products Sold] DESC;
 
 -->
 
