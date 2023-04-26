@@ -22,6 +22,8 @@ WHERE
 -- ### Exercise 3B ###
 -- ###################
 
+-- TODO: solve this the same way 3A was solved, only JOIN 2 tables
+
 SELECT TOP 1
 	o.ShipCity AS 'City',
 	COUNT(DISTINCT p.ID) AS 'Amount Orders'
@@ -67,19 +69,19 @@ WHERE
 
 SELECT TOP 1
 	c.CategoryName AS 'Category',
-	SUM(p.UnitsInStock) AS 'In Stock'
+	SUM(p.UnitsInStock * p.UnitPrice) AS 'Storage Value'
 FROM
 	Company.Products p
 	JOIN Company.Categories c ON p.CategoryId = c.ID
 GROUP BY
 	c.CategoryName
 ORDER BY
-	[In Stock] DESC;
+	[Storage Value] DESC;
 
 -->
 
 -- Category      In Stock
--- Seafood       701
+-- Seafood       13010,35
 
 
 
