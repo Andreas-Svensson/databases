@@ -2,11 +2,9 @@
 -- ### Exercise 3A ###
 -- ###################
 
-DECLARE @unique_products AS INT = (SELECT COUNT(DISTINCT ID) FROM Company.Products);
-
 SELECT
 	COUNT(DISTINCT od.ProductID) AS 'Unique Products',
-	FORMAT(CAST(COUNT(DISTINCT od.ProductID) AS FLOAT) / @unique_products * 100, '#.00') AS 'Amount Unique Products (%)'
+	FORMAT(CAST(COUNT(DISTINCT od.ProductID) AS FLOAT) / (SELECT COUNT(DISTINCT ID) FROM Company.Products) * 100, '#.00') AS 'Amount Unique Products (%)'
 FROM
 	Company.Order_Details od
 	JOIN Company.Orders o ON od.OrderID = o.ID
