@@ -4,7 +4,7 @@
 
 SELECT
 	COUNT(DISTINCT od.ProductID) AS 'Unique Products',
-	FORMAT(CAST(COUNT(DISTINCT od.ProductID) AS FLOAT) / (SELECT COUNT(DISTINCT ID) FROM Company.Products) * 100, '#.00') AS 'Amount Unique Products (%)'
+	ROUND(CAST(COUNT(DISTINCT od.ProductID) AS FLOAT) / (SELECT COUNT(DISTINCT ID) FROM Company.Products) * 100, 2) AS 'Amount Unique Products (%)'
 FROM
 	Company.Order_Details od
 	JOIN Company.Orders o ON od.OrderID = o.ID
