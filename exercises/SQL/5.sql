@@ -76,3 +76,30 @@ WHERE
 
 
 
+-- ###################
+-- ### Exercise 5D ###
+-- ###################
+
+SELECT
+	p.Name,
+	COUNT(DISTINCT a.ArtistID) AS 'Unique Artists'
+FROM
+	Music.Playlists p
+	JOIN Music.playlist_track pt ON p.PlaylistID = pt.PlaylistID
+	JOIN Music.Tracks t ON pt.TrackID = t.TrackID
+	JOIN Music.Albums a ON t.AlbumID = a.AlbumID
+GROUP BY
+	p.PlaylistID,
+	p.Name
+ORDER BY
+	[Unique Artists] DESC
+
+-->
+
+-- Playlist       Unique Artists
+-- Music          198     <-- NOTE: 2 identical playlists named "Music" with different PlaylistID exist, this is why it's important to group on ID as well as Name
+-- Music          198
+-- 90’s Music     109
+-- Classical      67
+
+
