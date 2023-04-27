@@ -2,22 +2,57 @@
 -- ### Exercise 5A ###
 -- ###################
 
-SELECT TOP 1
+SELECT -- TOP 1
 	ar.Name AS 'Artist',
 	COUNT(t.TrackID) AS 'Tracks',
-	CAST(SUM(t.Milliseconds) / 3600000.0 AS DECIMAL (6, 2)) AS 'Total Duration (hours)'
+	SUM(t.Milliseconds) / 60000 AS 'Total Duration (min)'
 FROM
 	Music.Artists ar
 	JOIN Music.Albums al ON ar.ArtistID = al.ArtistID
-	JOIN MUsic.Tracks t ON al.AlbumID = t.AlbumID
+	JOIN Music.Tracks t ON al.AlbumID = t.AlbumID
+	JOIN Music.Media_Types m ON t.MediaTypeID = m.MediaTypeID
+WHERE
+	m.Name <> 'Protected MPEG-4 video file'
 GROUP BY
 	ar.Name
 ORDER BY
-	[Total Duration (hours)] DESC
+	[Total Duration (min)] DESC
 
 -->
 
--- Artist     Tracks     Total Duration (hours)
--- Lost       92         66.19
+-- Artist           Tracks     Total Duration (hours)
+-- Iron Maiden      213        1197
+-- Led Zeppelin     114        668
+-- Metallica        112        648
+
+
+
+-- ###################
+-- ### Exercise 5B ###
+-- ###################
+
+SELECT -- TOP 1
+	ar.Name AS 'Artist',
+	COUNT(t.TrackID) AS 'Tracks',
+	SUM(t.Milliseconds) / 60000 AS 'Total Duration (min)',
+	FORMAT(DATEADD(ms, SUM(t.Milliseconds) / COUNT(t.TrackID), '00:00'), 'mm:ss') AS 'Average Duration (min:sec)'
+FROM
+	Music.Artists ar
+	JOIN Music.Albums al ON ar.ArtistID = al.ArtistID
+	JOIN Music.Tracks t ON al.AlbumID = t.AlbumID
+	JOIN Music.Media_Types m ON t.MediaTypeID = m.MediaTypeID
+WHERE
+	m.Name <> 'Protected MPEG-4 video file'
+GROUP BY
+	ar.Name
+ORDER BY
+	[Total Duration (min)] DESC
+
+-->
+
+-- Artist           Tracks     Total Duration (hours)     Average Duration (min:sec)
+-- Iron Maiden      213        1197                       05:37
+-- Led Zeppelin     114        668                        05:51
+-- Metallica        112        648                        05:47
 
 
