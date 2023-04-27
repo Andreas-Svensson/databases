@@ -56,3 +56,23 @@ ORDER BY
 -- Metallica        112        648                        05:47
 
 
+
+-- ###################
+-- ### Exercise 5C ###
+-- ###################
+
+SELECT
+	CAST(SUM(Bytes / POWER(10.0, 9)) AS DECIMAL (8, 2)) AS 'Total File Size of Video Files (GB)'
+FROM
+	Music.Media_Types m
+	JOIN Music.Tracks t ON m.MediaTypeID = t.MediaTypeID
+WHERE
+	m.Name = 'Protected MPEG-4 video file'
+
+-->
+
+-- Total File Size of Video Files (GB)
+-- 89.99
+
+
+
