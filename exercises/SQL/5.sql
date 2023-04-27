@@ -4,7 +4,7 @@
 
 SELECT TOP 1
 	ar.Name AS 'Artist',
-	COUNT(DISTINCT t.TrackID) AS 'Tracks',
+	COUNT(t.TrackID) AS 'Tracks',
 	CAST(SUM(t.Milliseconds) / 3600000.0 AS DECIMAL (6, 2)) AS 'Total Duration (hours)'
 FROM
 	Music.Artists ar
