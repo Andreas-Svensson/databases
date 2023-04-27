@@ -1,3 +1,7 @@
+-- ##################
+-- ### Exercise 4 ###
+-- ##################
+
 DECLARE @playlist varchar(max) = 'Heavy Metal Classic';
 
 SELECT
