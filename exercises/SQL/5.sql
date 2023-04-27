@@ -103,3 +103,26 @@ ORDER BY
 -- Classical      67
 
 
+
+-- ###################
+-- ### Exercise 5E ###
+-- ###################
+
+SELECT
+	AVG(artist_count) AS 'Average Artists per Playlist'
+FROM 
+	(
+    SELECT COUNT(DISTINCT a.ArtistID) AS artist_count
+    FROM Music.Playlists p
+    JOIN Music.Playlist_Track pt ON p.PlaylistID = pt.PlaylistID
+    JOIN Music.Tracks t ON pt.TrackID = t.TrackID
+    JOIN Music.Albums a ON t.AlbumID = a.AlbumID
+    GROUP BY p.PlaylistID
+	) AS subquery;
+
+-->
+
+-- Average Artists per Playlist
+-- 49
+
+
