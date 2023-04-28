@@ -85,9 +85,9 @@ SELECT
 	COUNT(DISTINCT a.ArtistID) AS 'Unique Artists'
 FROM
 	Music.Playlists p
-	JOIN Music.playlist_track pt ON p.PlaylistID = pt.PlaylistID
-	JOIN Music.Tracks t ON pt.TrackID = t.TrackID
-	JOIN Music.Albums a ON t.AlbumID = a.AlbumID
+	LEFT JOIN Music.playlist_track pt ON p.PlaylistID = pt.PlaylistID
+	LEFT JOIN Music.Tracks t ON pt.TrackID = t.TrackID
+	LEFT JOIN Music.Albums a ON t.AlbumID = a.AlbumID
 GROUP BY
 	p.PlaylistID,
 	p.Name
@@ -114,15 +114,15 @@ FROM
 	(
     SELECT COUNT(DISTINCT a.ArtistID) AS artist_count
     FROM Music.Playlists p
-    JOIN Music.Playlist_Track pt ON p.PlaylistID = pt.PlaylistID
-    JOIN Music.Tracks t ON pt.TrackID = t.TrackID
-    JOIN Music.Albums a ON t.AlbumID = a.AlbumID
+    LEFT JOIN Music.Playlist_Track pt ON p.PlaylistID = pt.PlaylistID
+    LEFT JOIN Music.Tracks t ON pt.TrackID = t.TrackID
+    LEFT JOIN Music.Albums a ON t.AlbumID = a.AlbumID
     GROUP BY p.PlaylistID
 	) AS subquery;
 
 -->
 
 -- Average Artists per Playlist
--- 49
+-- 38
 
 
