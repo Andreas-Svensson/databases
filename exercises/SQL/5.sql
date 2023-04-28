@@ -81,7 +81,7 @@ WHERE
 -- ###################
 
 SELECT
-	p.Name,
+	p.Name AS 'Playlist',
 	COUNT(DISTINCT a.ArtistID) AS 'Unique Artists'
 FROM
 	Music.Playlists p
